@@ -15,11 +15,15 @@ import { getPaginationModel, ITEM_TYPES } from 'ultimate-pagination';
 
 export default {
   name: 'ultimate-pagination',
-  props: ['value', 'totalPages'],
+  model: {
+    prop: 'currentPage',
+    event: 'change'
+  },
+  props: ['currentPage', 'totalPages'],
   computed: {
     paginationModel() {
       return getPaginationModel({
-        currentPage: this.value,
+        currentPage: this.currentPage,
         totalPages: this.totalPages
       });
     }
@@ -41,7 +45,7 @@ export default {
       }
     },
     updateValue(item) {
-      this.$emit('input', item.value);
+      this.$emit('change', item.value);
     }
   }
 }
