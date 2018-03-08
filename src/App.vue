@@ -28,12 +28,22 @@
     </fieldset>
 
     <fieldset>
-      <legend>Component</legend>
+      <legend>Basic</legend>
 
       <ultimate-pagination
         v-model="currentPage"
         :total-pages="totalPages"
-        :item-type-to-component="itemTypeToComponent"
+        :item-type-to-component="itemTypeToBasicComponent"
+      ></ultimate-pagination>
+    </fieldset>
+
+     <fieldset>
+      <legend>Material</legend>
+
+      <ultimate-pagination
+        v-model="currentPage"
+        :total-pages="totalPages"
+        :item-type-to-component="itemTypeToMaterialComponent"
       ></ultimate-pagination>
     </fieldset>
   </div>
@@ -41,7 +51,9 @@
 
 <script>
 import UltimatePagination from './UltimatePagination.vue';
-import { itemTypeToComponent } from './themes/basic';
+import { itemTypeToBasicComponent } from './themes/basic';
+import { itemTypeToMaterialComponent } from './themes/material';
+
 
 export default {
   name: 'app',
@@ -52,7 +64,8 @@ export default {
     return {
       currentPage: 1,
       totalPages: 10,
-      itemTypeToComponent
+      itemTypeToBasicComponent,
+      itemTypeToMaterialComponent
     }
   }
 }

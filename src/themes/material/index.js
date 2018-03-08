@@ -7,7 +7,7 @@ import PreviousPageLink from './PreviousPageLink.vue';
 import NextPageLink from './NextPageLink.vue';
 import LastPageLink from './LastPageLink.vue';
 
-export const itemTypeToBasicComponent = {
+export const itemTypeToMaterialComponent = {
   [ITEM_TYPES.PAGE]: Page,
   [ITEM_TYPES.ELLIPSIS]: Ellipsis,
   [ITEM_TYPES.FIRST_PAGE_LINK]: FirstPageLink,
