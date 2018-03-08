@@ -33,6 +33,7 @@
       <ultimate-pagination
         v-model="currentPage"
         :total-pages="totalPages"
+        :item-type-to-component="itemTypeToComponent"
       ></ultimate-pagination>
     </fieldset>
   </div>
@@ -40,6 +41,7 @@
 
 <script>
 import UltimatePagination from './UltimatePagination.vue';
+import { itemTypeToComponent } from './themes/basic';
 
 export default {
   name: 'app',
@@ -49,7 +51,8 @@ export default {
   data () {
     return {
       currentPage: 1,
-      totalPages: 10
+      totalPages: 10,
+      itemTypeToComponent
     }
   }
 }

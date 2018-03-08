@@ -1,11 +1,16 @@
 <template>
   <div>
-    <button
-      v-for="item in paginationModel"
-      :key="item.key"
-      :style="getButtonStyles(item)"
-      @click="updateValue(item)"
-    >{{ getButtonLabel(item) }}</button>
+    <div>
+      <component
+        v-for="item in paginationModel"
+        :key="item.key"
+        :is="itemTypeToComponent[item.type]"
+        :value="item.value"
+        :is-active="item.isActive"
+        :type="item.type"
+        @click="updateValue(item)"
+      ></component>
+    </div>
   </div>
 </template>
 
@@ -19,7 +24,7 @@ export default {
     prop: 'currentPage',
     event: 'change'
   },
-  props: ['currentPage', 'totalPages'],
+  props: ['currentPage', 'totalPages', 'itemTypeToComponent'],
   computed: {
     paginationModel() {
       return getPaginationModel({
@@ -29,21 +34,6 @@ export default {
     }
   },
   methods: {
-    getButtonLabel(item) {
-      switch (item.type) {
-        case ITEM_TYPES.ELLIPSIS: return '...';
-        case ITEM_TYPES.FIRST_PAGE_LINK: return '<<';
-        case ITEM_TYPES.LAST_PAGE_LINK: return '>>';
-        case ITEM_TYPES.PREVIOUS_PAGE_LINK: return '<';
-        case ITEM_TYPES.NEXT_PAGE_LINK: return '>';
-        default: return item.value;
-      }
-    },
-    getButtonStyles(item) {
-      if (item.type === ITEM_TYPES.PAGE && item.isActive) {
-        return { fontWeight: 'bold' };
-      }
-    },
     updateValue(item) {
       this.$emit('change', item.value);
     }
