@@ -7,6 +7,7 @@
         :is="itemTypeToComponent[item.type]"
         :value="item.value"
         :is-active="item.isActive"
+        :is-disabled="disabled"
         :type="item.type"
         @click="updateValue(item)"
       ></component>
@@ -24,7 +25,7 @@ export default {
     prop: 'currentPage',
     event: 'change'
   },
-  props: ['currentPage', 'totalPages', 'itemTypeToComponent'],
+  props: ['currentPage', 'totalPages', 'itemTypeToComponent', 'disabled'],
   computed: {
     paginationModel() {
       return getPaginationModel({

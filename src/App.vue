@@ -25,6 +25,15 @@
           v-model.number="totalPages"
         />
       </div>
+
+      <div>
+        <label for="is-disabled-checkbox">Disabled</label>
+        <input
+          id="is-disabled-checkbox"
+          type="checkbox"
+          v-model="isDisabled"
+        />
+      </div>
     </fieldset>
 
     <fieldset>
@@ -34,6 +43,7 @@
         v-model="currentPage"
         :total-pages="totalPages"
         :item-type-to-component="itemTypeToBasicComponent"
+        :disabled="isDisabled"
       ></ultimate-pagination>
     </fieldset>
 
@@ -44,6 +54,7 @@
         v-model="currentPage"
         :total-pages="totalPages"
         :item-type-to-component="itemTypeToMaterialComponent"
+        :disabled="isDisabled"
       ></ultimate-pagination>
     </fieldset>
   </div>
@@ -64,6 +75,7 @@ export default {
     return {
       currentPage: 1,
       totalPages: 10,
+      isDisabled: false,
       itemTypeToBasicComponent,
       itemTypeToMaterialComponent
     }
