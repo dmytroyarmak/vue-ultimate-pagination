@@ -1,0 +1,27 @@
+{
+  "name": "vue-ultimate-pagination",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmytroyarmak/vue-ultimate-pagination.git"
+  },
+  "author": "Dmytro Yarmak <dmytroyarmak@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmytroyarmak/vue-ultimate-pagination/issues"
+  },
+  "homepage": "https://github.com/dmytroyarmak/vue-ultimate-pagination#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.0.6",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
+  }
+}
